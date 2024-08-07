@@ -18,27 +18,27 @@
               </div>
               <!-- menu items -->
               <div class="mx-auto mt-14">
-                <a href="#" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
+                <a href="#overview" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
                   <img class="h-[5vh] -ml-2 p-1 " src="/images/hash.png" alt="">
                   Dashboard Overview
                 </a>
-                <a href="#" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
+                <a href="#user-management" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
                   <img class="h-[5vh] p-1 -ml-2" src="/images/user.png" alt="">
                   User <br>Management
                 </a>
-                <a href="#" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
+                <a href="#role-management" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
                   <img class="h-[5vh] p-1 -ml-2" src="/images/tasks.png" alt="">
                   Role <br>Management
                 </a>
-                <a href="#" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
+                <a href="#permission-management" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
                   <img class="h-[5vh] p-1 -ml-2" src="/images/permission.png" alt="">
                   Permission <br>Management
                 </a>
-                <a href="#" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
+                <a href="#reports" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
                   <img class="h-[5vh] p-1 -ml-1" src="/images/report.png" alt="">
                   Reports
                 </a>
-                <a href="#" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
+                <a href="#notifications" class="flex items-center gap-2 px-0 hover:px-3 rounded-xl transition-all duration-300 text-gray-200 hover:bg-gray-500 mb-3">
                   <img class="h-[5vh] p-1 -ml-2" src="/images/notification.png" alt="">
                   Notifications 
                 </a>
@@ -74,7 +74,7 @@
           
           </div>
           <!-- content -->
-          <div class="p-6 rounded-t-xl bg-[#F1F1F1] h-[90vh]">
+          <div id="overview"  class="p-6 rounded-t-xl bg-[#F1F1F1] h-[90vh]">
             <!-- title -->
             <div class="flex justify-between items-center mt-10">
               <div class="flex items-center gap-5">
@@ -82,7 +82,7 @@
                   <div class="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold mb-1" style="font-family: 'Itim', 'cursive'">
                     Overview
                   </div>
-                  <div class="text-gray-500 text-sm">Today's new recipies for you</div>
+                  <div class="text-gray-500 text-sm">Briefing of all activities</div>
                 </div>
               </div>
               <div class="flex items-center">
@@ -211,9 +211,61 @@
 
             </div>
           </div>
+
+           <!-- User Management Section -->
+           <div id="user-management" class="hidden">
+            <h2 class="text-2xl font-bold">User Management</h2>
+            <p>Content for User Management here.</p>
+        </div>
+  
+        <!-- Role Management Section -->
+        <div id="role-management" class="hidden">
+            <h2 class="text-2xl font-bold">Role Management</h2>
+            <p>Content for Role Management here.</p>
+        </div>
+  
+        <!-- Permission Management Section -->
+        <div id="permission-management" class="hidden">
+            <h2 class="text-2xl font-bold">Permission Management</h2>
+            <p>Content for Permission Management here.</p>
+        </div>
+  
+        <!-- Reports Section -->
+        <div id="reports" class="hidden">
+            <h2 class="text-2xl font-bold">Reports</h2>
+            <p>Content for Reports here.</p>
+        </div>
+  
+        <!-- Notifications Section -->
+        <div id="notifications" class="hidden">
+            <h2 class="text-2xl font-bold">Notifications</h2>
+            <p>Content for Notifications here.</p>
+        </div>
           
         </div>
       </div>
 
+      <script>
+        // JavaScript to handle section visibility
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a[href^="#"]');
+            const sections = document.querySelectorAll('#overview, #user-management, #role-management, #permission-management, #reports, #notifications');
+    
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+    
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+    
+                    sections.forEach(section => {
+                        section.classList.add('hidden');
+                    });
+    
+                    targetSection.classList.remove('hidden');
+                });
+            });
+        });
+        </script>
 </body>
 </html>
